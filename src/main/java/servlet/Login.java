@@ -26,11 +26,10 @@ public class Login extends HttpServlet {
 		String pass = request.getParameter("pass");
 		
 		//Userインスタンス（ユーザー情報）の生成
-		User user = new User(pass,name);
-		
+		User user = new User(name,pass);
 		//ログイン処理
-		LoginLogic loginlogic = new LoginLogic();
-		boolean isLogin = loginlogic.execute(user);
+		LoginLogic loginLogic = new LoginLogic();
+		boolean isLogin = loginLogic.execute(user);
 		
 		//ログイン成功時
 		if(isLogin) {
@@ -39,7 +38,7 @@ public class Login extends HttpServlet {
 			session.setAttribute("loginUser", user);
 		}
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/loginResult.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/loginResult.jsp");
 		dispatcher.forward(request, response);
 		
 	}

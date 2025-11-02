@@ -12,8 +12,8 @@ public class User implements Serializable {
 	
 	public User(String name, String pass) {
 		
-		name = this.name;
-		pass = this.pass;
+		this.name = name;
+		this.pass = pass;
 		
 	}
 
